@@ -49,8 +49,29 @@ const Ref = () => {
   }, [id])
 
   if (loading) {
-    return <h1>Loading...</h1>
-  }
+  return (
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f8fafc',
+      }}
+    >
+      <div
+        style={{
+          width: '60px',
+          height: '60px',
+          border: '6px solid #e5e7eb',
+          borderTop: '6px solid #0f9d8a',
+          borderRadius: '50%',
+          animation: 'spin 1s linear infinite',
+        }}
+      />
+    </div>
+  )
+}
 
   if (!data) {
     return <h1>Referral Not Found</h1>

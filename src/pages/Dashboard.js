@@ -19,27 +19,22 @@ const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [errorMsg, setErrorMsg] = useState('')
-
   useEffect(() => {
     getDashboardData()
   }, [])
-
   const getDashboardData = async () => {
     const token = Cookies.get('jwt_token')
-
     const options = {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
       },
     }
-
     try {
       const response = await fetch(
         'https://v9fes04dwf.execute-api.eu-north-1.amazonaws.com/api/referrals',
         options,
       )
-
       const data = await response.json()
 
       if (response.ok) {
@@ -50,15 +45,12 @@ const Dashboard = () => {
     } catch (error) {
       setErrorMsg('Something went wrong')
     }
-
     setLoading(false)
   }
-
   const copyText = text => {
     navigator.clipboard.writeText(text)
     alert('Copied Successfully')
   }
-
   const getIcon = index => {
     const icons = [
       <FaDollarSign />,
@@ -70,13 +62,33 @@ const Dashboard = () => {
       <FaUsers />,
       <FaExchangeAlt />,
     ]
-
     return icons[index % icons.length]
   }
-
-  if (loading) {
-    return <h1>Loading...</h1>
-  }
+ if (loading) {
+  return (
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f8fafc',
+      }}
+    >
+      <div
+        style={{
+          width: '60px',
+          height: '60px',
+          border: '6px solid #e5e7eb',
+          borderTop: '6px solid #0f9d8a',
+          borderRadius: '50%',
+          animation: 'spin 1s linear infinite',
+        }}
+      />
+    </div>
+  )
+}
+     
 
   if (errorMsg !== '') {
     return <h1>{errorMsg}</h1>
