@@ -8,7 +8,7 @@ const Ref = () => {
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     getReferralDetails()
-  }, [])
+  }, [id])
   const getReferralDetails = async () => {
     const token = Cookies.get('jwt_token')
     try {
@@ -70,7 +70,6 @@ const Ref = () => {
           >
             ← Back to dashboard
           </Link>
-
           <h1
             style={{
               marginTop: '25px',
@@ -152,8 +151,7 @@ const Ref = () => {
               </div>
 
               <div>
-                <strong>SERVICE NAME:</strong>{' '}
-                {data.serviceName}
+                <strong>SERVICE NAME:</strong> {data.serviceName}
               </div>
               <div>
                 <strong>DATE:</strong>{' '}
@@ -170,5 +168,4 @@ const Ref = () => {
     </>
   )
 }
-
 export default Ref
