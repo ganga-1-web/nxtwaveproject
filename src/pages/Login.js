@@ -73,8 +73,6 @@ return ( <div className="login-bg"> <div className="login-card"> <h1 className="
     </form>
   </div>
 </div>
-```
-
 )
 }
 export default Login
