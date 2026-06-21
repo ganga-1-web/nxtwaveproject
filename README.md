@@ -32,3 +32,24 @@ npm install
 npm start
 ## Live Deployment
 Deployed using Vercel.
+
+Project Structure
+src/
+├── components/
+│ ├── Navbar.js
+│ ├── Footer.js
+│ ├── ReferralTable.js
+│ └── protect.js
+│
+├── pages/
+│ ├── Login.js
+│ ├── Dashboard.js
+│ ├── ref.js
+│ └── NotFound.js
+│
+├── App.js
+└── index.js
+
+
+Vercel Deployment URL:
+https://nxtwaveproject-hkth-507ce3sfk-codeteam1.vercel.app/login
