@@ -179,45 +179,45 @@ const Dashboard = () => {
           >
             <div
               style={{
-                border: '1px solid #eee',
+                border: '5px solid #dbb7c1',
                 padding: '20px',
                 borderRadius: '10px',
               }}
             >
-              <p style={{color: '#888'}}>SERVICE</p>
+              <p style={{color: 'orange',fontsize:'20px'}}>SERVICE</p>
               <h3>{dashboardData?.serviceSummary?.service}</h3>
             </div>
 
             <div
               style={{
-                border: '1px solid #eee',
+                border: '5px solid #dbb7c1',
                 padding: '20px',
                 borderRadius: '10px',
               }}
             >
-              <p style={{color: '#888'}}>YOUR REFERRALS</p>
+              <p style={{color: 'orange',fontsize:'20px'}}>YOUR REFERRALS</p>
               <h3>{dashboardData?.serviceSummary?.yourReferrals}</h3>
             </div>
 
             <div
               style={{
-                border: '1px solid #eee',
+                border: '5px solid  #dbb7c1',
                 padding: '20px',
                 borderRadius: '10px',
               }}
             >
-              <p style={{color: '#888'}}>ACTIVE REFERRALS</p>
+              <p style={{color: 'orange',fontsize:'20px',}}>ACTIVE REFERRALS</p>
               <h3>{dashboardData?.serviceSummary?.activeReferrals}</h3>
             </div>
 
             <div
               style={{
-                border: '1px solid #eee',
+                border: '5px solid #dbb7c1',
                 padding: '20px',
                 borderRadius: '10px',
               }}
             >
-              <p style={{color: '#888'}}>TOTAL REF. EARNINGS</p>
+              <p style={{color: 'orange',fontsize:'20px',}}>TOTAL REF. EARNINGS</p>
               <h3>{dashboardData?.serviceSummary?.totalRefEarnings}</h3>
             </div>
           </div>
@@ -258,6 +258,7 @@ const Dashboard = () => {
                     style={{
                       flex: 1,
                       padding: '12px',
+                      borderRadius:'8px',
                     }}
                   />
 
@@ -289,6 +290,7 @@ const Dashboard = () => {
                   style={{
                     display: 'flex',
                     gap: '10px',
+                    borderRadius:'7px',
                   }}
                 >
                   <input
@@ -305,6 +307,15 @@ const Dashboard = () => {
                   />
 
                   <button
+  style={{
+    backgroundColor: '#0f9d8a',
+    color: '#ffffff',
+    border: 'none',
+    borderRadius: '8px',
+    padding: '12px 20px',
+    cursor: 'pointer',
+    fontWeight: '600',
+  }}  
                     onClick={() =>
                       copyText(
                         dashboardData?.referral?.code,
