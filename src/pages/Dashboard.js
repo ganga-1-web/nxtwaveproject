@@ -3,6 +3,7 @@ import Cookies from 'js-cookie'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import ReferralTable from '../components/ReferralTable'
+
 import {
   FaDollarSign,
   FaCreditCard,
@@ -13,27 +14,34 @@ import {
   FaUsers,
   FaExchangeAlt,
 } from 'react-icons/fa'
+
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [errorMsg, setErrorMsg] = useState('')
+
   useEffect(() => {
     getDashboardData()
   }, [])
+
   const getDashboardData = async () => {
     const token = Cookies.get('jwt_token')
+
     const options = {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
       },
     }
+
     try {
       const response = await fetch(
         'https://v9fes04dwf.execute-api.eu-north-1.amazonaws.com/api/referrals',
         options,
       )
+
       const data = await response.json()
+
       if (response.ok) {
         setDashboardData(data.data || data)
       } else {
@@ -42,12 +50,15 @@ const Dashboard = () => {
     } catch (error) {
       setErrorMsg('Something went wrong')
     }
+
     setLoading(false)
   }
+
   const copyText = text => {
     navigator.clipboard.writeText(text)
     alert('Copied Successfully')
   }
+
   const getIcon = index => {
     const icons = [
       <FaDollarSign />,
@@ -59,17 +70,22 @@ const Dashboard = () => {
       <FaUsers />,
       <FaExchangeAlt />,
     ]
+
     return icons[index % icons.length]
   }
+
   if (loading) {
     return <h1>Loading...</h1>
   }
+
   if (errorMsg !== '') {
     return <h1>{errorMsg}</h1>
   }
+
   return (
     <>
       <Navbar />
+
       <div
         style={{
           backgroundColor: '#f5f7fb',
@@ -147,7 +163,9 @@ const Dashboard = () => {
               </div>
             ))}
           </div>
+
           <h2 style={{marginBottom: '20px'}}>Service Summary</h2>
+
           <div
             style={{
               display: 'grid',
@@ -203,9 +221,11 @@ const Dashboard = () => {
               <h3>{dashboardData?.serviceSummary?.totalRefEarnings}</h3>
             </div>
           </div>
+
           <h2 style={{marginBottom: '20px'}}>
             Refer Friends and Earn More
           </h2>
+
           <div
             style={{
               backgroundColor: '#fff',
@@ -224,6 +244,7 @@ const Dashboard = () => {
                 <p style={{color: '#888'}}>
                   YOUR REFERRAL LINK
                 </p>
+
                 <div
                   style={{
                     display: 'flex',
@@ -239,15 +260,23 @@ const Dashboard = () => {
                       padding: '12px',
                     }}
                   />
+
                   <button
-                    onClick={() =>
-                      copyText(
-                        dashboardData?.referral?.link,
-                      )
-                    }
-                  >
-                    Copy
-                  </button>
+  style={{
+    backgroundColor: '#0f9d8a',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '8px',
+    padding: '12px 20px',
+    cursor: 'pointer',
+    fontWeight: '600',
+  }}
+  onClick={() =>
+    copyText(dashboardData?.referral?.link)
+  }
+>
+  Copy
+</button>
                 </div>
               </div>
 
@@ -255,6 +284,7 @@ const Dashboard = () => {
                 <p style={{color: '#888'}}>
                   YOUR REFERRAL CODE
                 </p>
+
                 <div
                   style={{
                     display: 'flex',
@@ -266,10 +296,14 @@ const Dashboard = () => {
                     value={dashboardData?.referral?.code || ''}
                     readOnly
                     style={{
-                      flex: 1,
-                      padding: '12px',
-                    }}
+  flex: 1,
+  padding: '12px',
+  border: '1px solid #263243',
+  borderRadius: '8px',
+  backgroundColor: '#f8fafc',
+}}
                   />
+
                   <button
                     onClick={() =>
                       copyText(
@@ -283,13 +317,16 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+
           <ReferralTable
             referrals={dashboardData?.referrals || []}
           />
         </div>
       </div>
+
       <Footer />
     </>
   )
 }
+
 export default Dashboard

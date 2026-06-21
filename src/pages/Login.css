@@ -1,19 +1,19 @@
 .login-bg {
-  background-color: #f5f7fb;
+  background-color: #f3f4f6;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .login-card {
-  background-color: white;
+  background-color: #ffffff;
   width: 420px;
   padding: 40px;
   border-radius: 16px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
 }
 .logo {
-  color: #6c5ce7;
+  color: #0f9d8a;
   font-size: 48px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -21,11 +21,13 @@
 .subtitle {
   color: #6b7280;
   margin-bottom: 25px;
+  font-size: 18px;
 }
 .label {
   display: block;
   font-weight: 600;
   margin-bottom: 8px;
+  color: #111827;
 }
 .input {
   width: 100%;
@@ -34,19 +36,31 @@
   border-radius: 8px;
   margin-bottom: 20px;
   font-size: 16px;
+  background-color: #eef4ff;
+  box-sizing: border-box;
+}
+.input:focus {
+  outline: none;
+  border-color: #0f9d8a;
+  box-shadow: 0px 0px 0px 3px rgba(15, 157, 138, 0.15);
 }
 .login-btn {
   width: 100%;
   padding: 14px;
   border: none;
   border-radius: 8px;
-  background-color: #6c5ce7;
+  background-color: #0f9d8a;
   color: white;
   font-weight: bold;
   cursor: pointer;
   font-size: 16px;
+  transition: 0.3s;
+}
+.login-btn:hover {
+  background-color: #0b7d70;
 }
 .error {
-  color: red;
+  color: #dc2626;
   margin-top: 10px;
+  text-align: center;
 }

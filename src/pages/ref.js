@@ -88,7 +88,7 @@ const Ref = () => {
           <h1
             style={{
               marginTop: '25px',
-              fontSize: '52px',
+              fontSize: '38px',
               color: '#111827',
               marginBottom: '10px',
             }}
@@ -99,7 +99,7 @@ const Ref = () => {
           <p
             style={{
               color: '#6b7280',
-              fontSize: '22px',
+              fontSize: '15px',
               marginBottom: '40px',
             }}
           >
@@ -108,7 +108,7 @@ const Ref = () => {
 
           <div
             style={{
-              backgroundColor: '#ffffff',
+              backgroundColor: '#ffffffe2',
               borderRadius: '20px',
               padding: '40px',
               width: '700px',
@@ -125,7 +125,7 @@ const Ref = () => {
             >
               <h2
                 style={{
-                  fontSize: '42px',
+                  fontSize: '35px',
                   margin: 0,
                   color: '#111827',
                 }}
@@ -136,11 +136,11 @@ const Ref = () => {
               <span
                 style={{
                   backgroundColor: '#eef0ff',
-                  color: '#6c5ce7',
+                  color: '#0e0555',
                   padding: '12px 22px',
                   borderRadius: '14px',
                   fontWeight: 'bold',
-                  fontSize: '18px',
+                  fontSize: '14px',
                 }}
               >
                 {data.serviceName}
